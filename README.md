@@ -1,6 +1,6 @@
-# Sample XVM Project
+# Sample OrbiterX Project
 
-## Orbiter Bridge XVM Contract
+## Orbiter Bridge OrbiterX Contract
 
 
 ### Contract Summary
