@@ -49,7 +49,7 @@
     "solhint-plugin-prettier": "^0.0.5",
     "solidity-coverage": "^0.7.21",
     "ts-node": "^10.9.1",
-    "typechain": "^8.1.0",
+    "typechain": "^8.1.1",
     "typescript": "^4.7.4"
   },
   "dependencies": {
@@ -57,16 +57,10 @@
     "@openzeppelin/contracts": "^4.8.1",
     "chalk": "^4.1.2",
     "dotenv": "^16.0.3",
-    "ethereumjs-util": "^7.1.5",
-    "generate-contract-interface": "^0.1.13",
     "hardhat-contract-sizer": "^2.8.0",
     "hardhat-etherscan": "^1.0.1",
-    "keccak256": "^1.0.6",
-    "level": "^8.0.0",
-    "lodash": "^4.17.21",
     "rimraf": "^3.0.2",
     "rlp": "^3.0.0",
-    "solidity-docgen": "^0.6.0-beta.34",
-    "solidity-rlp": "^2.0.5"
+    "solidity-docgen": "^0.6.0-beta.34"
   }
 }

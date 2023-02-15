@@ -105,3 +105,4 @@ dist
 artifacts
 cache
 typechain-types
+veify.json
