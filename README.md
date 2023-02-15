@@ -1,12 +1,45 @@
 # Sample OrbiterX Project
 
-## Orbiter Bridge OrbiterX Contract
+ Files Description Table
 
 
-### Contract Summary
-![image](public/image/ContractSummary.png)
+|  File Name  |  SHA-1 Hash  |
+|-------------|--------------|
+|  /OrbiterX-contract/contracts/OrbiterXRouter.sol | 4b74056f4ccb963f8aaf8b7e705f34865fcda829 |
+
+
+ Contracts Description Table
+
+
+|  Contract  |         Type        |       Bases      |                  |                 |
+|:----------:|:-------------------:|:----------------:|:----------------:|:---------------:|
+|     └      |  **Function Name**  |  **Visibility**  |  **Mutability**  |  **Modifiers**  |
+||||||
+| **IERC20** | Interface |  |||
+| └ | transfer | External ❗️ | 🛑  |NO❗️ |
+| └ | balanceOf | External ❗️ |   |NO❗️ |
+| └ | allowance | External ❗️ |   |NO❗️ |
+| └ | transferFrom | External ❗️ | 🛑  |NO❗️ |
+||||||
+| **OrbiterXRouter** | Implementation | Ownable, Multicall |||
+| └ | <Constructor> | Public ❗️ | 🛑  |NO❗️ |
+| └ | <Receive Ether> | External ❗️ |  💵 |NO❗️ |
+| └ | changeMaker | Public ❗️ | 🛑  | onlyOwner |
+| └ | withdraw | External ❗️ | 🛑  | onlyOwner |
+| └ | forward | Private 🔐 | 🛑  | |
+| └ | swap | External ❗️ |  💵 |NO❗️ |
+| └ | swapAnswer | External ❗️ |  💵 |NO❗️ |
+
+
+ Legend
+
+|  Symbol  |  Meaning  |
+|:--------:|-----------|
+|    🛑    | Function can modify state |
+|    💵    | Function is payable |
+
 ### Inheritance Graph
-![image](public/image/InheritanceGraph.png)
+![image](public/image/Class.png)
 ### CallGraph
 ![image](public/image/CallGraph.png)
 
