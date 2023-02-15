@@ -24,12 +24,6 @@ interface IERC20 {
 
 contract OrbiterXRouter is Ownable, Multicall {
     mapping(address => bool) public getMaker;
-    event Swap(address indexed maker, address indexed token);
-    event SwapAnswer(
-        address indexed operator,
-        address indexed recipient
-    );
-
     event ChangeMaker(address indexed maker, bool indexed enable);
 
     constructor(address maker) {
@@ -93,7 +87,6 @@ contract OrbiterXRouter is Ownable, Multicall {
     {
         require(getMaker[recipient], "Maker does not exist");
         value = token == address(0) ? msg.value : value;
-        emit Swap(recipient, token);
         forward(token, recipient, value);
     }
   /// @notice Swap response
@@ -108,7 +101,6 @@ contract OrbiterXRouter is Ownable, Multicall {
         bytes calldata data
     ) external payable {
         require(getMaker[msg.sender], "caller is not the maker");
-        emit SwapAnswer(msg.sender, recipient);
         forward(token, recipient, value);
     }
 }
