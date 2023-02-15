@@ -22,8 +22,8 @@
 | └ | transferFrom | External ❗️ | 🛑  |NO❗️ |
 ||||||
 | **OrbiterXRouter** | Implementation | Ownable, Multicall |||
-| └ | <Constructor> | Public ❗️ | 🛑  |NO❗️ |
-| └ | <Receive Ether> | External ❗️ |  💵 |NO❗️ |
+| └ | Constructor | Public ❗️ | 🛑  |NO❗️ |
+| └ | Receive Ether | External ❗️ |  💵 |NO❗️ |
 | └ | changeMaker | Public ❗️ | 🛑  | onlyOwner |
 | └ | withdraw | External ❗️ | 🛑  | onlyOwner |
 | └ | forward | Private 🔐 | 🛑  | |
