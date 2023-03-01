@@ -2,27 +2,10 @@
 pragma solidity ^0.8.17;
 import "./Multicall.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
-interface IERC20 {
-    function transfer(
-        address recipient,
-        uint256 amount
-    ) external returns (bool);
-
-    function balanceOf(address account) external view returns (uint256);
-
-    function allowance(
-        address owner,
-        address spender
-    ) external view returns (uint256);
-
-    function transferFrom(
-        address from,
-        address to,
-        uint256 amount
-    ) external returns (bool);
-}
+import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 
 contract OrbiterXRouter is Ownable, Multicall {
+    using SafeERC20 for IERC20;
     mapping(address => bool) public getMaker;
     event ChangeMaker(address indexed maker, bool indexed enable);
 
@@ -31,6 +14,7 @@ contract OrbiterXRouter is Ownable, Multicall {
     }
 
     receive() external payable {}
+
     function changeMaker(address maker, bool enable) public onlyOwner {
         getMaker[maker] = enable;
         emit ChangeMaker(maker, enable);
@@ -38,16 +22,13 @@ contract OrbiterXRouter is Ownable, Multicall {
 
     function withdraw(address token) external onlyOwner {
         if (token != address(0)) {
-            bool success = IERC20(token).transfer(
-                msg.sender,
-                IERC20(token).balanceOf(address(this))
-            );
-            require(success, "Withdraw Fail");
+            IERC20 coin = IERC20(token);
+            coin.safeTransfer(msg.sender, coin.balanceOf(address(this)));
         } else {
             payable(msg.sender).transfer(address(this).balance);
         }
     }
-    
+
     function forward(
         address token,
         address payable recipient,
@@ -57,16 +38,12 @@ contract OrbiterXRouter is Ownable, Multicall {
             require(address(this).balance >= value, "Insufficient Balance");
             recipient.transfer(value);
         } else {
+            IERC20 coin = IERC20(token);
             require(
-                IERC20(token).allowance(msg.sender, address(this)) >= value,
-                "Insufficient Balance"
+                coin.allowance(msg.sender, address(this)) >= value,
+                "Approve Insufficient Balance"
             );
-            bool success = IERC20(token).transferFrom(
-                msg.sender,
-                recipient,
-                value
-            );
-            require(success, "Tranfer Wrong");
+            coin.safeTransferFrom(msg.sender, recipient, value);
         }
     }
 
@@ -81,19 +58,17 @@ contract OrbiterXRouter is Ownable, Multicall {
         address token,
         uint256 value,
         bytes calldata data
-    )
-        external
-        payable
-    {
+    ) external payable {
         require(getMaker[recipient], "Maker does not exist");
         value = token == address(0) ? msg.value : value;
         forward(token, recipient, value);
     }
-  /// @notice Swap response
-  /// @param recipient User receiving address
-  /// @param token Token sent to user
-  /// @param value Amount sent to user
-  /// @param data parameters are encoded by RLP compression  = RLP(fromHash + type)
+
+    /// @notice Swap response
+    /// @param recipient User receiving address
+    /// @param token Token sent to user
+    /// @param value Amount sent to user
+    /// @param data parameters are encoded by RLP compression
     function swapAnswer(
         address payable recipient,
         address token,
