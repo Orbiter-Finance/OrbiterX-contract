@@ -1,8 +1,8 @@
 import { ethers } from "hardhat";
 async function main() {
     const accounts = await ethers.getSigners();
-    const maker = accounts[2];
-    const contract = await ethers.getContractAt("OrbiterXRouter", String(process.env['OrbiterXRouter']));
+    const maker = accounts[0];
+    const contract = await ethers.getContractAt("OrbiterXRouterV3","0x5973Ef577a1C873521665AE7d6875c493e409296");
     const contrctAddr = contract.address;
     console.log('OrbiterXRouter: ', contract.address);
     const tokens = ["0x6b56404816A1CB8ab8E8863222d8C1666De942d5", "0x1c8f9D9C1D74c38c8Aeb5033126EA1133728b32f", "0xFEf68eb974c562B0dCBF307d9690e0BD10e35cEa"];

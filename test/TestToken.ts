@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import { TestToken } from "../typechain-types";
 import { ethers } from "hardhat";
 export async function getTokenContract() {
-    const testToken = await loadOrDeployContract<TestToken>('TestToken', false, ethers.utils.parseEther('1000000'), 18, 'USDT');
+    const testToken = await loadOrDeployContract<TestToken>('TestToken', false, ethers.utils.parseEther('10000000000'), 18, 'USDT');
     return testToken;
 }
 describe("Test Token", function () {

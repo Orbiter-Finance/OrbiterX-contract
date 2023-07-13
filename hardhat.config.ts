@@ -5,9 +5,9 @@ import 'hardhat-contract-sizer';
 const { INFURA_API_KEY, ALCHEMY_KEY, NETWORK, ACCOUNTS } = process.env;
 const accounts = ACCOUNTS?.split(',');
 const config: HardhatUserConfig = {
-  defaultNetwork: NETWORK || "hardhat",
+  defaultNetwork: NETWORK  || 'hardhat',
   solidity: {
-    version: '0.8.17',
+    version: '0.8.19',
     settings: {
       optimizer: {
         enabled: true,
@@ -32,7 +32,7 @@ const config: HardhatUserConfig = {
       accounts
     },
     goerli: {
-      url: `https://eth-goerli.g.alchemy.com/v2/${ALCHEMY_KEY}`,
+      url: `https://rpc.ankr.com/eth_goerli`,
       timeout: 1000 * 60 * 60 * 5,
       accounts,
     },
@@ -65,7 +65,7 @@ const config: HardhatUserConfig = {
       accounts
     },
     bscTestnet: {
-      url: `https://data-seed-prebsc-2-s3.binance.org:8545`,
+      url: `https://data-seed-prebsc-1-s2.binance.org:8545`,
       accounts
     },
     polygonZKEVM: {
