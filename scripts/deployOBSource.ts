@@ -1,15 +1,14 @@
 import { ethers } from "hardhat";
-import { OrbiterXRouter } from "../typechain-types";
 import { deploy } from "./utils";
-import { OrbiterXRouterV3 } from "../typechain-types/contracts/OrbiterXRouterV3.sol";
+import { OBSource } from "../typechain-types/contracts/OBSource.sol";
 
 async function main() {
   const accounts = await ethers.getSigners();
   const owner = accounts[0];
-  const maker = accounts[1];
 
-  const contract = await deploy<OrbiterXRouterV3>(false, 'OrbiterXRouterV3')
-  console.log('OrbiterXRouterV3: ', contract.address);
+  const contract = await deploy<OBSource>(false, 'OBSource')
+  console.log('owner: ', owner.address);
+  console.log('OBSource Contract: ', contract.address);
 }
 
 // We recommend this pattern to be able to use async/await everywhere

@@ -2,6 +2,8 @@ import 'dotenv/config';
 import { HardhatUserConfig } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
 import 'hardhat-contract-sizer';
+import "@nomiclabs/hardhat-etherscan";
+// import "@nomicfoundation/hardhat-verify";
 const { INFURA_API_KEY, ALCHEMY_KEY, NETWORK, ACCOUNTS } = process.env;
 const accounts = ACCOUNTS?.split(',');
 const config: HardhatUserConfig = {
@@ -21,6 +23,10 @@ const config: HardhatUserConfig = {
     },
     ganache: {
       url: 'http://127.0.0.1:8545',
+      accounts
+    },
+    lineaTestnet: {
+      url: 'https://rpc.goerli.linea.build',
       accounts
     },
     test: {
@@ -77,6 +83,11 @@ const config: HardhatUserConfig = {
       accounts
     },
   },
+  etherscan: {
+    // Your API key for Etherscan
+    // Obtain one at https://etherscan.io/
+    apiKey: "YOUR_ETHERSCAN_API_KEY"
+  }
 };
 
 export default config;

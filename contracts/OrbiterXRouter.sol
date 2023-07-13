@@ -7,7 +7,7 @@ import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
  * @title OrbiterXRouterV3
  * @dev A contract for batch transfers of Ether and tokens to multiple addresses.
  */
-contract OrbiterXRouterV3 {
+contract OrbiterXRouter {
     using SafeERC20 for IERC20;
     bool private locked;
     event Transfer(address indexed to, uint256 amount);
