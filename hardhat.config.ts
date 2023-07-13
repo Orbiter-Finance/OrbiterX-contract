@@ -29,6 +29,10 @@ const config: HardhatUserConfig = {
       url: 'https://rpc.goerli.linea.build',
       accounts
     },
+    linea: {
+      url: '',
+      accounts
+    },
     test: {
       url: 'http://ec2-54-178-23-104.ap-northeast-1.compute.amazonaws.com:8545',
       accounts
