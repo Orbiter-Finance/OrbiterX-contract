@@ -29,6 +29,14 @@ const config: HardhatUserConfig = {
       url: 'https://rpc.goerli.linea.build',
       accounts
     },
+    mantleTestnst: {
+      url: 'https://rpc.testnet.mantle.xyz',
+      accounts
+    },
+    mantle: {
+      url: 'https://rpc.mantle.xyz',
+      accounts
+    },
     linea: {
       url: '',
       accounts
