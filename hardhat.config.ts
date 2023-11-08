@@ -45,6 +45,14 @@ const config: HardhatUserConfig = {
       url: 'http://ec2-54-178-23-104.ap-northeast-1.compute.amazonaws.com:8545',
       accounts
     },
+    baseTest: {
+      url: 'https://goerli.base.org',
+      accounts
+    },
+    base: {
+      url: 'https://base.blockpi.network/v1/rpc/public',
+      accounts
+    },
     mainnet: {
       url: `https://mainnet.infura.io/v3/${INFURA_API_KEY}`,
       accounts
