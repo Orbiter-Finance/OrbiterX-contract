@@ -1,13 +1,13 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.19;
+pragma solidity ^0.8.22;
 
 import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 
 /**
- * @title OrbiterXRouterV3
+ * @title OrbiterRouter
  * @dev A contract for batch transfers of Ether and tokens to multiple addresses.
  */
-contract OrbiterXRouter {
+contract OrbiterRouter {
     using SafeERC20 for IERC20;
     bool private locked;
     event Transfer(address indexed to, uint256 amount);

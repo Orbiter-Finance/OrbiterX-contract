@@ -106,3 +106,17 @@ artifacts
 cache
 typechain-types
 veify.json
+
+node_modules
+.env
+coverage
+coverage.json
+typechain
+typechain-types
+
+# Hardhat files
+cache
+artifacts
+
+balances
+input.json
