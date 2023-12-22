@@ -71,7 +71,7 @@ const config: HardhatUserConfig = {
       accounts
     },
     optimismGoerli: {
-      url: `https://goerli.optimism.io`,
+      url: `https://optimism-goerli.public.blastapi.io`,
       accounts
     },
     optimism: {
@@ -86,8 +86,12 @@ const config: HardhatUserConfig = {
       url: `https://goerli.gateway.metisdevops.link`,
       accounts
     },
-    scrollGoerli: {
-      url: `https://prealpha.scroll.io/l2`,
+    scroll: {
+      url: `https://rpc.scroll.io`,
+      accounts
+    },
+    scrollSepolia: {
+      url: `https://sepolia-rpc.scroll.io`,
       accounts
     },
     bscTestnet: {
@@ -98,8 +102,24 @@ const config: HardhatUserConfig = {
       url: "https://rpc.public.zkevm-test.net",
       accounts
     },
+    polygonZKEVMTestnet: {
+      url: "https://rpc.public.zkevm-test.net",
+      accounts
+    },
     polygon: {
       url: `https://polygon-bor.publicnode.com`,
+      accounts
+    },
+    zksyncEra: {
+      url: `https://mainnet.era.zksync.io`,
+      accounts
+    },
+    zksyncEraSepolia: {
+      url: `https://sepolia.era.zksync.dev`,
+      accounts
+    },
+    zksyncEraGoerli: {
+      url: `https://testnet.era.zksync.dev`,
       accounts
     },
   },
