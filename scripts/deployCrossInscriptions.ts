@@ -12,7 +12,7 @@ async function main() {
   console.log("crossInscriptions.address:", crossInscriptions.address);
   await crossInscriptions.deployed();
 
-  console.log('owner: ', owner.address);
+  console.log("owner: ", owner.address);
   console.log("Done:", new Date());
 }
 

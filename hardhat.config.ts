@@ -1,9 +1,15 @@
 import 'dotenv/config';
+
+// zksync
+import "@matterlabs/hardhat-zksync-deploy";
+import "@matterlabs/hardhat-zksync-solc";
+
 import { HardhatUserConfig } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
 import 'hardhat-contract-sizer';
 import "@nomiclabs/hardhat-etherscan";
 // import "@nomicfoundation/hardhat-verify";
+
 const { INFURA_API_KEY, ALCHEMY_KEY, NETWORK, ACCOUNTS } = process.env;
 const accounts = ACCOUNTS?.split(',');
 const config: HardhatUserConfig = {
@@ -112,21 +118,44 @@ const config: HardhatUserConfig = {
     },
     zksyncEra: {
       url: `https://mainnet.era.zksync.io`,
-      accounts
+      accounts,
+      zksync: true,
     },
     zksyncEraSepolia: {
       url: `https://sepolia.era.zksync.dev`,
-      accounts
+      accounts,
+      zksync: true,
+      ethNetwork: 'sepolia'
     },
     zksyncEraGoerli: {
       url: `https://testnet.era.zksync.dev`,
-      accounts
+      accounts,
+      zksync: true,
+      ethNetwork: 'goerli',
     },
+  },
+  zksolc: {
+    version: "latest", // Uses latest available in https://github.com/matter-labs/zksolc-bin/
+    settings: {},
   },
   etherscan: {
     // Your API key for Etherscan
     // Obtain one at https://etherscan.io/
-    apiKey: "YOUR_ETHERSCAN_API_KEY"
+    apiKey: {
+      goerli: process.env['ETHERSCAN_API_KEY'] || '',
+      // base: process.env['BASESCAN_API_KEY'] || '',
+      baseTest: process.env['BASESCAN_API_KEY'] || ''
+    },
+    customChains: [
+      {
+        network:'baseTest',
+        chainId: 84531,
+        urls: {
+          apiURL: 'https://api-goerli.basescan.org/api',
+          browserURL: 'https://goerli.basescan.org'
+        }
+      }
+    ]
   }
 };
 

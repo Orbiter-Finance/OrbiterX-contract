@@ -106,3 +106,5 @@ artifacts
 cache
 typechain-types
 veify.json
+artifacts-zk
+cache-zk
