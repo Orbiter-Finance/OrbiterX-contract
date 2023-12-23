@@ -3,12 +3,15 @@ import 'dotenv/config';
 // zksync
 import "@matterlabs/hardhat-zksync-deploy";
 import "@matterlabs/hardhat-zksync-solc";
-
 import { HardhatUserConfig } from "hardhat/config";
-import "@nomicfoundation/hardhat-toolbox";
 import 'hardhat-contract-sizer';
+
+// zksync verify
+// import "@matterlabs/hardhat-zksync-verify";
+
+// others verify
+import "@nomicfoundation/hardhat-toolbox";
 import "@nomiclabs/hardhat-etherscan";
-// import "@nomicfoundation/hardhat-verify";
 
 const { INFURA_API_KEY, ALCHEMY_KEY, NETWORK, ACCOUNTS } = process.env;
 const accounts = ACCOUNTS?.split(',');
@@ -120,7 +123,8 @@ const config: HardhatUserConfig = {
       url: `https://mainnet.era.zksync.io`,
       accounts,
       zksync: true,
-      ethNetwork: 'mainnet'
+      ethNetwork: 'mainnet',
+      // verifyURL: 'https://zksync2-mainnet-explorer.zksync.io/contract_verification'
     },
     zksyncEraSepolia: {
       url: `https://sepolia.era.zksync.dev`,
