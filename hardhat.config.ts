@@ -136,7 +136,7 @@ const config: HardhatUserConfig = {
     },
   },
   zksolc: {
-    version: "latest", // Uses latest available in https://github.com/matter-labs/zksolc-bin/
+    version: "1.3.18", // Uses latest available in https://github.com/matter-labs/zksolc-bin/
     settings: {},
   },
   etherscan: {
