@@ -120,6 +120,7 @@ const config: HardhatUserConfig = {
       url: `https://mainnet.era.zksync.io`,
       accounts,
       zksync: true,
+      ethNetwork: 'mainnet'
     },
     zksyncEraSepolia: {
       url: `https://sepolia.era.zksync.dev`,
@@ -143,7 +144,7 @@ const config: HardhatUserConfig = {
     // Obtain one at https://etherscan.io/
     apiKey: {
       goerli: process.env['ETHERSCAN_API_KEY'] || '',
-      // base: process.env['BASESCAN_API_KEY'] || '',
+      base: process.env['BASESCAN_API_KEY'] || '',
       baseTest: process.env['BASESCAN_API_KEY'] || ''
     },
     customChains: [
@@ -153,6 +154,14 @@ const config: HardhatUserConfig = {
         urls: {
           apiURL: 'https://api-goerli.basescan.org/api',
           browserURL: 'https://goerli.basescan.org'
+        }
+      },
+      {
+        network:'base',
+        chainId: 8453,
+        urls: {
+          apiURL: 'https://api.basescan.org/api',
+          browserURL: 'https://basescan.org'
         }
       }
     ]
