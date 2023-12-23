@@ -42,7 +42,7 @@ contract CrossInscriptions {
 
             (bool success, ) = tos[i].call{value: value}("");
             require(success, "Ether transfer failed");
-            
+
             emit Transfer(tos[i], value);
         }
         require(total == 0, "There are many extra costs");
