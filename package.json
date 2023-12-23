@@ -3,6 +3,7 @@
   "scripts": {
     "deploy:OrbiterX": "npx hardhat run ./scripts/deployOrbiterX.ts",
     "deploy:OBSource": "npx hardhat run ./scripts/deployOBSource.ts",
+    "deploy:CrossInscriptions": "npx hardhat run ./scripts/deployCrossInscriptions.ts",
     "compile": "hardhat compile",
     "coverage": "env COVERAGE=true hardhat coverage",
     "test": "REPORT_GAS=true hardhat test ./test/TestToken.ts ./test/OrbiterXRouter.ts  --network hardhat",
