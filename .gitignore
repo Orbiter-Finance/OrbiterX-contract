@@ -5,6 +5,15 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
+.vscode
+
+# hardhat artifacts
+artifacts
+cache
+
+# zksync artifacts
+artifacts-zk
+cache-zk
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
@@ -102,9 +111,3 @@ dist
 
 # TernJS port file
 .tern-port
-artifacts
-cache
-typechain-types
-veify.json
-artifacts-zk
-cache-zk
