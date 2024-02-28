@@ -1,12 +1,11 @@
 import { ethers } from "hardhat";
 import { deploy } from "./utils";
-import { OrbiterXRouter } from "../typechain-types/contracts/OrbiterXRouter.sol";
 
 async function main() {
   const accounts = await ethers.getSigners();
   const owner = accounts[0];
 
-  const contract = await deploy<OrbiterXRouter>(false, 'OrbiterXRouter')
+  const contract = await deploy<OrbiterXRouterV3>(false, 'OrbiterXRouterV3')
   console.log('owner: ', owner.address);
   console.log('OrbiterXRouter Contract: ', contract.address);
 }

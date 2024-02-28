@@ -127,7 +127,7 @@ const config: HardhatUserConfig = {
       // verifyURL: 'https://zksync2-mainnet-explorer.zksync.io/contract_verification'
     },
     zksyncEraSepolia: {
-      url: `https://sepolia.era.zksync.dev`,
+      url: `https://zksync-era-sepolia.blockpi.network/v1/rpc/public`,
       accounts,
       zksync: true,
       ethNetwork: 'sepolia'
@@ -140,7 +140,7 @@ const config: HardhatUserConfig = {
     },
   },
   zksolc: {
-    version: "1.3.18", // Uses latest available in https://github.com/matter-labs/zksolc-bin/
+    version: "latest", // Uses latest available in https://github.com/matter-labs/zksolc-bin/
     settings: {},
   },
   etherscan: {
