@@ -6,7 +6,8 @@
   "license": "MIT",
   "repository": "https://github.com/matter-labs/zksync-hardhat-template.git",
   "scripts": {
-    "deploy:OrbiterX": "npx hardhat run ./scripts/deployOrbiterRouterV3.ts",
+    "deploy:Token": "hardhat deploy-zksync --script erc20/deploy.ts",
+    "deploy:OrbiterX": "hardhat deploy-zksync --script deployOrbiterRouterV3.ts",
     "deploy": "hardhat deploy-zksync --script deploy.ts",
     "interact": "hardhat deploy-zksync --script interact.ts",
     "compile": "hardhat compile",
