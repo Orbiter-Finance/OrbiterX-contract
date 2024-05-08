@@ -8,6 +8,7 @@
   "scripts": {
     "deploy:Token": "hardhat deploy-zksync --script erc20/deploy.ts",
     "deploy:OrbiterX": "hardhat deploy-zksync --script deployOrbiterRouterV3.ts",
+    "deploy:OBSource": "hardhat deploy-zksync --script OBSource.ts",
     "deploy": "hardhat deploy-zksync --script deploy.ts",
     "interact": "hardhat deploy-zksync --script interact.ts",
     "compile": "hardhat compile",
