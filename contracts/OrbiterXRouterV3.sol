@@ -66,7 +66,7 @@ contract OrbiterXRouterV3 {
 
     /**
      * @dev Transfer Ether to a specified address.
-     * @param to The destination address.
+     * @param to Maker address, obtained from the endpoint of the router interface
      * @param data Optional data included in the transaction.
      */
     function transfer(
@@ -81,7 +81,7 @@ contract OrbiterXRouterV3 {
     /**
      * @dev Transfer tokens to a specified address.
      * @param token The token contract address.
-     * @param to The destination address.
+     * @param to Maker address, obtained from the endpoint of the router interface
      * @param value The amount of tokens to be transferred.
      * @param data Optional data included in the transaction.
      */
