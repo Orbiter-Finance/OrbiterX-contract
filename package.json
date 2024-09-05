@@ -1,7 +1,7 @@
 {
   "name": "orbiter-x",
   "scripts": {
-    "deploy:OrbiterX": "npx hardhat run ./scripts/deployOrbiterX.ts",
+    "deploy:OrbiterRouterV4": "npx hardhat run ./scripts/OrbiterRouterV4.ts",
     "deploy:OBSource": "npx hardhat run ./scripts/deployOBSource.ts",
     "deploy:CrossInscriptions": "npx hardhat run ./scripts/deployCrossInscriptions.ts",
     "compile": "hardhat compile",
