@@ -13,7 +13,7 @@ describe('Greeter', function () {
     const newGreeting = "Hola, mundo!";
     const setGreetingTx = await greeter.setGreeting(newGreeting);
     
-    // wait until the transaction is mined
+    // wait until the transaction is processed
     await setGreetingTx.wait();
 
     expect(await greeter.greet()).to.equal(newGreeting);

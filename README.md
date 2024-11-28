@@ -1,8 +1,4 @@
-# This repository is deprecated and will no longer be maintained. This template is now available in [zkSync Contract Templates](https://github.com/matter-labs/zksync-contract-templates#readme)
-
----
-
-# zkSync Hardhat project template
+# ZKsync Hardhat project template
 
 This project was scaffolded with [zksync-cli](https://github.com/matter-labs/zksync-cli).
 
@@ -38,13 +34,13 @@ WALLET_PRIVATE_KEY=your_private_key_here...
 
 ### Local Tests
 
-Running `npm run test` by default runs the [zkSync In-memory Node](https://era.zksync.io/docs/tools/testing/era-test-node.html) provided by the [@matterlabs/hardhat-zksync-node](https://era.zksync.io/docs/tools/hardhat/hardhat-zksync-node.html) tool.
+Running `npm run test` by default runs the [ZKsync In-memory Node](https://docs.zksync.io/build/test-and-debug/in-memory-node) provided by the [@matterlabs/hardhat-zksync-node](https://docs.zksync.io/build/tooling/hardhat/hardhat-zksync-node) tool.
 
-Important: zkSync In-memory Node currently supports only the L2 node. If contracts also need L1, use another testing environment like Dockerized Node. Refer to [test documentation](https://era.zksync.io/docs/tools/testing/) for details.
+Important: ZKsync In-memory Node currently supports only the L2 node. If contracts also need L1, use another testing environment like Dockerized Node. Refer to [test documentation](https://docs.zksync.io/build/test-and-debug) for details.
 
 ## Useful Links
 
-- [Docs](https://era.zksync.io/docs/dev/)
+- [Docs](https://docs.zksync.io/build)
 - [Official Site](https://zksync.io/)
 - [GitHub](https://github.com/matter-labs)
 - [Twitter](https://twitter.com/zksync)

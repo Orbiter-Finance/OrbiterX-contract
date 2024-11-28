@@ -1,24 +1,27 @@
-import "@matterlabs/hardhat-zksync-node";
-import "@matterlabs/hardhat-zksync-deploy";
-import "@matterlabs/hardhat-zksync-solc";
-import "@matterlabs/hardhat-zksync-verify";
-
 import { HardhatUserConfig } from "hardhat/config";
 
+import "@matterlabs/hardhat-zksync";
+
 const config: HardhatUserConfig = {
-  defaultNetwork: "zkSyncTestnetSepolia",
+  defaultNetwork: "zero",
   networks: {
-    zkSyncTestnetSepolia: {
+    zeroTestnet: {
+      url: 'https://rpc.zerion.io/v1/zero-sepolia',
+      zksync: true,
+      ethNetwork: 'sepolia',
+      verifyURL: 'https://api-explorer.zero.network/contract/contract_verification'
+    },
+    zero: {
+      url: 'https://rpc.zerion.io/v1/zero',
+      zksync: true,
+      ethNetwork: 'mainnet',
+      verifyURL: 'https://zero-network.calderaexplorer.xyz/verification/contract_verification'
+    },
+    zkSyncSepoliaTestnet: {
       url: "https://sepolia.era.zksync.dev",
       ethNetwork: "sepolia",
       zksync: true,
       verifyURL: "https://explorer.sepolia.era.zksync.dev/contract_verification",
-    },
-    zkSyncTestnetGoerli: {
-      url: "https://testnet.era.zksync.dev",
-      ethNetwork: "goerli",
-      zksync: true,
-      verifyURL: "https://zksync2-testnet-explorer.zksync.dev/contract_verification",
     },
     zkSyncMainnet: {
       url: "https://mainnet.era.zksync.io",
@@ -33,7 +36,7 @@ const config: HardhatUserConfig = {
     },
     inMemoryNode: {
       url: "http://127.0.0.1:8011",
-      ethNetwork: "", // in-memory node doesn't support eth node; removing this line will cause an error
+      ethNetwork: "localhost", // in-memory node doesn't support eth node; removing this line will cause an error
       zksync: true,
     },
     hardhat: {
@@ -41,14 +44,14 @@ const config: HardhatUserConfig = {
     },
   },
   zksolc: {
-    version: "1.3.22",
+    version: "latest",
     settings: {
       // find all available options in the official documentation
-      // https://era.zksync.io/docs/tools/hardhat/hardhat-zksync-solc.html#configuration
+      // https://docs.zksync.io/build/tooling/hardhat/hardhat-zksync-solc#configuration
     },
   },
   solidity: {
-    version: "0.8.19",
+    version: "0.8.20",
   },
 };
 
