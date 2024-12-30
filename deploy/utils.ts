@@ -1,4 +1,4 @@
-import { Provider, Wallet } from "zksync-ethers";
+import { Provider, Wallet, utils } from "zksync-ethers";
 import * as hre from "hardhat";
 import { Deployer } from "@matterlabs/hardhat-zksync";
 import dotenv from "dotenv";
@@ -13,7 +13,7 @@ dotenv.config();
 export const getProvider = () => {
   const rpcUrl = hre.network.config.url;
   if (!rpcUrl) throw `⛔️ RPC URL wasn't found in "${hre.network.name}"! Please add a "url" field to the network config in hardhat.config.ts`;
-  
+
   // Initialize ZKsync Provider
   const provider = new Provider(rpcUrl);
 
@@ -27,7 +27,7 @@ export const getWallet = (privateKey?: string) => {
   }
 
   const provider = getProvider();
-  
+
   // Initialize ZKsync Wallet
   const wallet = new Wallet(privateKey ?? process.env.WALLET_PRIVATE_KEY!, provider);
 
@@ -67,7 +67,7 @@ type DeployContractOptions = {
   noVerify?: boolean
   /**
    * If specified, the contract will be deployed using this wallet
-   */ 
+   */
   wallet?: Wallet
 }
 export const deployContract = async (contractArtifactName: string, constructorArguments?: any[], options?: DeployContractOptions) => {
@@ -78,6 +78,7 @@ export const deployContract = async (contractArtifactName: string, constructorAr
   log(`\nStarting deployment process of "${contractArtifactName}"...`);
 
   const wallet = options?.wallet ?? getWallet();
+  console.log('load wallet ', wallet.address)
   const deployer = new Deployer(hre, wallet);
   const artifact = await deployer
     .loadArtifact(contractArtifactName)
@@ -94,18 +95,20 @@ export const deployContract = async (contractArtifactName: string, constructorAr
       }
     });
 
-  // Estimate contract deployment fee
-  const deploymentFee = await deployer.estimateDeployFee(
-    artifact,
-    constructorArguments || []
+  const params = utils.getPaymasterParams(
+    "0x98546B226dbbA8230cf620635a1e4ab01F6A99B2", // Paymaster address
+    {
+      type: "General",
+      innerInput: new Uint8Array(),
+    }
   );
-  log(`Estimated deployment cost: ${ethers.formatEther(deploymentFee)} ETH`);
-
-  // Check if the wallet has enough balance
-  await verifyEnoughBalance(wallet, deploymentFee);
-
   // Deploy the contract to ZKsync
-  const contract = await deployer.deploy(artifact, constructorArguments);
+  const contract = await deployer.deploy(artifact, constructorArguments || [], 'create', {
+    customData: {
+      paymasterParams: params,
+      gasPerPubdata: utils.DEFAULT_GAS_PER_PUBDATA_LIMIT,
+  },
+  });
   const address = await contract.getAddress();
   const constructorArgs = contract.interface.encodeDeploy(constructorArguments);
   const fullContractSource = `${artifact.sourceName}:${artifact.contractName}`;

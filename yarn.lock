@@ -373,6 +373,24 @@
     sinon "^18.0.0"
     sinon-chai "^3.7.0"
 
+"@matterlabs/hardhat-zksync-verify@^1.7.1":
+  version "1.7.1"
+  resolved "https://registry.npmjs.org/@matterlabs/hardhat-zksync-verify/-/hardhat-zksync-verify-1.7.1.tgz#45d4c1a4ea5ebe1137df1856f93a9686b018481f"
+  integrity sha512-FtibELgllkyAZORDW4/s/7XSC5DaqAXG0KXMqGipQyXuIXQ9l1kpaHMpoEtHvQL7xxmkgZqCcSZgATnKl91nDg==
+  dependencies:
+    "@ethersproject/abi" "^5.7.0"
+    "@ethersproject/address" "5.7.0"
+    "@matterlabs/hardhat-zksync-solc" "^1.2.5"
+    "@nomicfoundation/hardhat-verify" "^2.0.8"
+    axios "^1.7.2"
+    cbor "^9.0.2"
+    chai "^4.3.4"
+    chalk "^4.1.2"
+    debug "^4.3.5"
+    semver "^7.6.2"
+    sinon "^18.0.0"
+    sinon-chai "^3.7.0"
+
 "@matterlabs/hardhat-zksync@^1.1.0":
   version "1.3.0"
   resolved "https://registry.npmjs.org/@matterlabs/hardhat-zksync/-/hardhat-zksync-1.3.0.tgz#d40d3e0bc8b096ef003a52d1142ae4bea61a164a"
@@ -618,6 +636,7 @@
     node-fetch "^2.6.0"
 
 "@openzeppelin/contracts-hardhat-zksync-upgradable@npm:@openzeppelin/contracts@^5.0.2", "@openzeppelin/contracts@^5.1.0":
+  name "@openzeppelin/contracts-hardhat-zksync-upgradable"
   version "5.1.0"
   resolved "https://registry.npmjs.org/@openzeppelin/contracts/-/contracts-5.1.0.tgz#4e61162f2a2bf414c4e10c45eca98ce5f1aadbd4"
   integrity sha512-p1ULhl7BXzjjbha5aqst+QMLY+4/LCWADXOCsmLHRM77AqiPjnd9vvUN9sosUfhL9JGKpZ0TjEGxgvnizmWGSA==
