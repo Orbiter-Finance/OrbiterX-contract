@@ -4,7 +4,7 @@ import "@matterlabs/hardhat-zksync";
 dotenv.config();
 
 const config: HardhatUserConfig = {
-  defaultNetwork: "abstractTestnet",
+  defaultNetwork: "abstractMainnet",
   networks: {
     abstractTestnet: {
       url: "https://api.testnet.abs.xyz",
