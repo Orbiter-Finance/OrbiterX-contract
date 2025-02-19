@@ -3,7 +3,7 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "deploy": "hardhat deploy-zksync --script deploy.ts",
+    "deploy": "npm run compile && npx hardhat deploy-zksync --script deploy.ts",
     "interact": "hardhat deploy-zksync --script interact.ts",
     "compile": "hardhat compile",
     "clean": "hardhat clean",
@@ -23,9 +23,9 @@
     "mocha": "^10.7.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.4",
-    "zksync-ethers": "^6.11.0"
-  },
-  "dependencies": {
+    "zksync-ethers": "^6.11.0",
+    "@matterlabs/hardhat-zksync-solc": "^1.2.5",
     "@matterlabs/hardhat-zksync-verify": "^1.7.1"
-  }
+  },
+  "dependencies": {}
 }
